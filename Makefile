@@ -234,7 +234,7 @@ rpm:
 
 # This is quite ugly but at least it works
 ifeq ($(OS),linux)
-SUBDIRS := arprefresh bmf dot_draw dyn_gw dyn_gw_plain httpinfo info jsoninfo mdns mini nameservice netjson poprouting p2pd pgraph pud quagga secure sgwdynspeed txtinfo watchdog
+SUBDIRS := arprefresh bmf dot_draw dyn_gw dyn_gw_plain filtergw httpinfo info jsoninfo mdns mini nameservice netjson poprouting p2pd pgraph pud quagga secure sgwdynspeed txtinfo watchdog
 else
 ifeq ($(OS),win32)
 SUBDIRS := dot_draw httpinfo info jsoninfo mini netjson pgraph secure txtinfo
@@ -336,6 +336,18 @@ dyn_gw_plain_install:
 
 dyn_gw_plain_uninstall:
 		$(MAKECMDPREFIX)$(MAKECMD) -C lib/dyn_gw_plain DESTDIR=$(DESTDIR) uninstall
+
+filtergw:
+		$(MAKECMDPREFIX)$(MAKECMD) -C lib/filtergw
+
+filtergw_clean:
+		$(MAKECMDPREFIX)$(MAKECMD) -C lib/filtergw DESTDIR=$(DESTDIR) clean
+
+filtergw_install:
+		$(MAKECMDPREFIX)$(MAKECMD) -C lib/filtergw DESTDIR=$(DESTDIR) install
+
+filtergw_uninstall:
+		$(MAKECMDPREFIX)$(MAKECMD) -C lib/filtergw DESTDIR=$(DESTDIR) uninstall
 
 httpinfo:
 		$(MAKECMDPREFIX)$(MAKECMD) -C lib/httpinfo
