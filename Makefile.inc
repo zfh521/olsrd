@@ -57,7 +57,7 @@ NOSTRIP ?= 0
 NO_DEBUG_MESSAGES ?= 0
 
 # the optimize option to be set for gcc
-OPTIMIZE ?= 
+OPTIMIZE ?= -O2
 
 # enable mudflap with 1 or deactivate with 0
 # you need a recent enough gcc and the libmudflap installed
